@@ -1,0 +1,108 @@
+.page {
+  min-height: 100vh;
+}
+
+.mainWrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.authPage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.card {
+  background: #171b24;
+  border: 1px solid #222838;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.formCard {
+  width: 100%;
+  max-width: 420px;
+}
+
+input, select, button {
+  width: 100%;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  padding: 10px;
+  border: 1px solid #2f3648;
+  background: #0f1117;
+  color: #e8ebf2;
+}
+
+button {
+  background: #4ecca3;
+  border: 1px solid #4ecca3;
+  color: #091015;
+  cursor: pointer;
+}
+
+.navWrap {
+  padding: 14px 20px;
+  border-bottom: 1px solid #2c3244;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navLinks {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.navLogo {
+  font-weight: 700;
+}
+
+.tableWrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #2c3244;
+  padding: 8px;
+  text-align: left;
+}
+
+tbody tr:nth-child(even) {
+  background: #111621;
+}
+
+.barBg {
+  width: 100%;
+  height: 10px;
+  background: #262d3f;
+}
+.barFill {height:10px;background:#4ecca3}
+
+.errorTxt {
+  color: #ff8484;
+}
+
+.rowActive {
+  background: #20363a !important;
+}
+
+@media (max-width: 600px) {
+  .navWrap {
+        flex-direction: column;
+    align-items: flex-start;
+  }
+  .navLinks {
+    width: 100%;
+    flex-direction: column;
+  }
+}
