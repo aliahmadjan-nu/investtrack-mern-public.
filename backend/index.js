@@ -9,14 +9,17 @@ dotenv.config()
 const app = express()
 app.use(express.json())
 
-const fixed = ['http://localhost:3000']
-if (process.env.FRONTEND_URL) fixed.push(process.env.FRONTEND_URL)
+const normalize = (u) => (u || '').trim().replace(/\/+$/, '')
+
+const fixed = [normalize('http://localhost:3000')]
+if (process.env.FRONTEND_URL) fixed.push(normalize(process.env.FRONTEND_URL))
 
 app.use(cors({
   origin: (origin, cb) => {
     if (!origin) return cb(null, true)
-    if (fixed.includes(origin)) return cb(null, true)
-    if (!process.env.FRONTEND_URL && origin.endsWith('.vercel.app')) return cb(null, true) // temp allow until env set
+    const now = normalize(origin)
+    if (fixed.includes(now)) return cb(null, true)
+    if (!process.env.FRONTEND_URL && now.endsWith('.vercel.app')) return cb(null, true) // temp allow until env set
     return cb(new Error('Not allowed by CORS'))
   }
 }))
